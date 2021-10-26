@@ -6,6 +6,7 @@ in
 {
   imports = [
   	./apps/chromium.nix
+  	./apps/firefox.nix
   ];
 
   programs.home-manager.enable = true;
@@ -26,7 +27,14 @@ in
     alacritty
     tdesktop
 
+    plexamp
+    unstable.joplin-desktop
+
     unstable.bitwig-studio4
+
+    resilio-sync
+
+    plasma-pa
   ];
 
   programs.bash.enable = true;
