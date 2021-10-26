@@ -5,7 +5,7 @@ let
 in
 {
   imports = [
-  	./chromium.nix
+  	./apps/chromium.nix
   ];
 
   programs.home-manager.enable = true;
