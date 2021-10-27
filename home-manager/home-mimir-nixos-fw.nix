@@ -7,6 +7,9 @@ in
   imports = [
   	./apps/chromium.nix
   	./apps/firefox.nix
+  	./apps/neovim.nix
+
+	./defaults.nix
   ];
 
   programs.home-manager.enable = true;
@@ -21,9 +24,10 @@ in
   };
 
   home.packages = with pkgs; [
-    neovim
-    discord
+    tmux
     ripgrep
+
+    discord
     alacritty
     tdesktop
 
@@ -31,6 +35,7 @@ in
     unstable.joplin-desktop
 
     unstable.bitwig-studio4
+    libreoffice
 
     resilio-sync
 
