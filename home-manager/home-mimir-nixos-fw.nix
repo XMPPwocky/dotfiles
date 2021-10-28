@@ -9,6 +9,8 @@ in
   	./apps/firefox.nix
   	./apps/neovim.nix
 
+  	./apps/renoise.nix
+
 	./defaults.nix
   ];
 
@@ -41,7 +43,16 @@ in
     resilio-sync
 
     plasma-pa
+
+    yubikey-agent
+
+    pinentry-qt
+
   ];
+
+
+
+
 
   programs.bash.enable = true;
   programs.git = {

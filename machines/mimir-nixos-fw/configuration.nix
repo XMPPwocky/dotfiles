@@ -58,7 +58,9 @@
   };
 
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [
+    53735 # resilio (non-default)
+  ];
   networking.firewall.allowedUDPPorts = [
     53735 # resilio (non-default)
   ];
@@ -75,5 +77,9 @@
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
+
+  services.cpupower-gui.enable = true;
+  services.pcscd.enable = true;
+  services.yubikey-agent.enable = true;
 }
 
