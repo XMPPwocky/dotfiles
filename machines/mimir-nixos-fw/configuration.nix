@@ -46,7 +46,6 @@
 		];
   
 
-  security.sudo.wheelNeedsPassword = false;
   users.mutableUsers = false;
   users.users.mimir = {
     isNormalUser = true;
@@ -81,5 +80,10 @@
   services.cpupower-gui.enable = true;
   services.pcscd.enable = true;
   services.yubikey-agent.enable = true;
+
+  services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.kde.fprintAuth = true;
+  security.pam.services.sddm.fprintAuth = true;
 }
 
