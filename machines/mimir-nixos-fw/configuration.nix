@@ -7,8 +7,9 @@
     [
       ./hardware-configuration.nix
 
-      ./tlp.nix
       ./tailscale.nix
+
+      ./audio.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -16,6 +17,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  environment.systemPackages = [
+  ];
+    
 
   hardware.pulseaudio.enable = true;
 
@@ -37,7 +42,7 @@
 
   services.xserver.enable = true;
 
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   #services.xserver.desktopManager.plasma5.runUsingSystemd = true;
   services.xserver.displayManager.sessionPackages = [
@@ -51,7 +56,7 @@
     isNormalUser = true;
     description = "Mimir";
 
-    extraGroups = [ "audio" "wheel" "networkmanager" ]; 
+    extraGroups = [ "audio" "jackaudio" "wheel" "networkmanager" ]; 
 
     hashedPassword = (builtins.readFile /etc/nixos/mimir_pwhash);
   };
@@ -78,12 +83,24 @@
   };
 
   services.cpupower-gui.enable = true;
+  services.thermald.enable = true;
+  services.fprintd.enable = true;
+
   services.pcscd.enable = true;
   services.yubikey-agent.enable = true;
 
-  services.fprintd.enable = true;
   security.pam.services.login.fprintAuth = true;
   security.pam.services.kde.fprintAuth = true;
   security.pam.services.sddm.fprintAuth = false;
+  security.pam.services.gdm.fprintAuth = true;
+
+  hardware.cpu.intel.updateMicrocode = true;
+  hardware.enableAllFirmware = true;
+
+  boot.kernelParams = [
+    "i915.enable_fbc=1"
+    "i915.enable_psr=2"
+    "i915.enable_guc=2"
+  ];
 }
 

@@ -5,6 +5,8 @@ let
 in
 {
   imports = [
+  	./apps/alacritty.nix
+
   	./apps/chromium.nix
   	./apps/firefox.nix
   	./apps/neovim.nix
@@ -31,7 +33,6 @@ in
     mosh
 
     discord
-    alacritty
     tdesktop
 
     plexamp
