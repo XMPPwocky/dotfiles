@@ -6,3 +6,6 @@ augroup filetypedetect
 augroup END
 
 command! -nargs=0 Format :call CocAction('format')
+
+set termguicolors
+colorscheme evening

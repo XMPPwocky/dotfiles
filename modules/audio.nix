@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  # build everything with pulseaudio where available
+  nixpkgs.config.pulseaudio = true;
+
   environment.systemPackages = with pkgs; [ libjack2 jack2 qjackctl ];
 
   security.pam.loginLimits = [

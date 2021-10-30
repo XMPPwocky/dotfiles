@@ -23,7 +23,6 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.config.pulseaudio = true;
 
   networking.networkmanager.enable = true;
 
@@ -35,16 +34,6 @@ in
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-
-  users.mutableUsers = false;
-  users.users.mimir = {
-    isNormalUser = true;
-    description = "Mimir";
-
-    extraGroups = [ "audio" "jackaudio" "wheel" "networkmanager" ];
-
-    hashedPassword = (builtins.readFile /etc/nixos/mimir_pwhash);
-  };
 
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [
