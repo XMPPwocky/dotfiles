@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 let
   modulesBase = "/home/mimir/dotfiles/modules";
@@ -70,7 +70,17 @@ in
     "i915.enable_psr=2"
     "i915.enable_guc=2"
   ];
+  boot.extraModprobeConfig = lib.mkMerge [
+    # idle audio card after one second
+    "options snd_hda_intel power_save=1"
+    # enable wifi power saving (keep uapsd off to maintain low latencies)
+    "options iwlwifi power_save=1 uapsd_disable=1"
+  ];
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard=async" "compress" ];
+  services.tlp = {
+    enable = true;
+  };
+
+  fileSystems."/".options = [ "relatime" "nodiratime" "discard=async" "compress" ];
 }
 
