@@ -23,7 +23,6 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-
   networking.networkmanager.enable = true;
 
   networking.hostName = "mimir-nixos-fw"; # Define your hostname.
@@ -45,8 +44,6 @@ in
 
   programs.steam.enable = true;
 
-  #networking.extraHosts = ''149.56.47.63	downloads-NA.bitwig.com'';
-
   hardware.opengl = {
     enable = true;
     extraPackages = [ pkgs.vaapiIntel ];
@@ -64,11 +61,6 @@ in
   services.yubikey-agent.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
-
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.kde.fprintAuth = true;
-  security.pam.services.sddm.fprintAuth = false;
-  security.pam.services.gdm.fprintAuth = true;
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableAllFirmware = true;
