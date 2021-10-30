@@ -11,6 +11,7 @@ in
     "apps/neovim.nix"
 
     "apps/resilio.nix"
+    "apps/duplicacy-web.nix"
 
     "apps/chromium.nix"
     "apps/firefox.nix"
