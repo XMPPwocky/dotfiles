@@ -2,18 +2,17 @@
 
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  homeManagerBase = /home/mimir/dotfiles/home-manager;
 in
 {
-  imports = [
-    ./apps/alacritty.nix
+  imports = map (path: homeManagerBase + ("/" + path)) [
+    "apps/alacritty.nix"
+    "apps/chromium.nix"
+    "apps/firefox.nix"
+    "apps/neovim.nix"
+    "apps/renoise.nix"
 
-    ./apps/chromium.nix
-    ./apps/firefox.nix
-    ./apps/neovim.nix
-
-    ./apps/renoise.nix
-
-    ./defaults.nix
+    "defaults.nix"
   ];
 
   programs.home-manager.enable = true;
