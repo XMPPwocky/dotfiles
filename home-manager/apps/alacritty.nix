@@ -14,5 +14,8 @@
       program = "${pkgs.tmux}/bin/tmux";
       args = [ "new-session" "-A" "-D" "-s" "main" ];
     };
+    env = {
+      TERM = "xterm-256color";
+    };
   };
 }

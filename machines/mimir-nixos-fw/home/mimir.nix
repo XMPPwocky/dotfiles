@@ -7,9 +7,12 @@ in
 {
   imports = map (path: homeManagerBase + ("/" + path)) [
     "apps/alacritty.nix"
+    "apps/tmux.nix"
+    "apps/neovim.nix"
+
     "apps/chromium.nix"
     "apps/firefox.nix"
-    "apps/neovim.nix"
+
     "apps/renoise.nix"
 
     "defaults.nix"
@@ -27,7 +30,6 @@ in
   };
 
   home.packages = with pkgs; [
-    tmux
     ripgrep
     mosh
 
@@ -49,10 +51,6 @@ in
     pinentry-qt
 
   ];
-
-
-
-
 
   programs.bash.enable = true;
   programs.git = {
