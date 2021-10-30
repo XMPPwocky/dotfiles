@@ -8,10 +8,11 @@
     { domain = "@audio"; item = "nofile"; type = "hard"; value = "99999"; }
   ];
 
+  hardware.pulseaudio.enable = true;
   hardware.pulseaudio.package = pkgs.pulseaudio.override { jackaudioSupport = true; };
 
   services.jack = {
-    jackd.enable = true;
+    jackd.enable = false;
     # support ALSA only programs via ALSA JACK PCM plugin
     alsa.enable = false;
     # support ALSA only programs via loopback device (supports programs like Steam)

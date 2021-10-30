@@ -22,8 +22,6 @@
   ];
     
 
-  hardware.pulseaudio.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.pulseaudio = true;
@@ -42,13 +40,13 @@
 
   services.xserver.enable = true;
 
-  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   #services.xserver.desktopManager.plasma5.runUsingSystemd = true;
-  services.xserver.displayManager.sessionPackages = [
-  	(pkgs.plasma-workspace.overrideAttrs
-		(old: { passthru.providedSessions = ["plasmawayland"]; }))
-		];
+  #services.xserver.displayManager.sessionPackages = [
+  #	(pkgs.plasma-workspace.overrideAttrs
+  #	 	(old: { passthru.providedSessions = ["plasmawayland"]; }))
+  #	 	];
   
 
   users.mutableUsers = false;
