@@ -10,6 +10,8 @@ in
     "apps/tmux.nix"
     "apps/neovim.nix"
 
+    "apps/resilio.nix"
+
     "apps/chromium.nix"
     "apps/firefox.nix"
 
