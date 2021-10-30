@@ -9,19 +9,16 @@ in
   imports = [
     ./hardware-configuration.nix
   ] ++ map (path: modulesBase + ("/" + path)) [
-    "tailscale.nix"
+    "desktop.nix"
+
     "audio.nix"
+    "tailscale.nix"
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  environment.systemPackages = [
-  ];
-
 
   nixpkgs.config.allowUnfree = true;
 
@@ -31,24 +28,12 @@ in
 
   networking.hostName = "mimir-nixos-fw"; # Define your hostname.
 
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  #services.xserver.desktopManager.plasma5.runUsingSystemd = true;
-  #services.xserver.displayManager.sessionPackages = [
-  #	(pkgs.plasma-workspace.overrideAttrs
-  #	 	(old: { passthru.providedSessions = ["plasmawayland"]; }))
-  #	 	];
-
 
   users.mutableUsers = false;
   users.users.mimir = {
