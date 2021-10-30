@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [ libjack2 jack2 qjackctl ];
+
   security.pam.loginLimits = [
     { domain = "@audio"; item = "memlock"; type = "*"; value = "unlimited"; }
     { domain = "@audio"; item = "rtprio"; type = "*"; value = "99"; }

@@ -5,15 +5,15 @@ let
 in
 {
   imports = [
-  	./apps/alacritty.nix
+    ./apps/alacritty.nix
 
-  	./apps/chromium.nix
-  	./apps/firefox.nix
-  	./apps/neovim.nix
+    ./apps/chromium.nix
+    ./apps/firefox.nix
+    ./apps/neovim.nix
 
-  	./apps/renoise.nix
+    ./apps/renoise.nix
 
-	./defaults.nix
+    ./defaults.nix
   ];
 
   programs.home-manager.enable = true;
@@ -24,7 +24,7 @@ in
   home.stateVersion = "21.05";
 
   nixpkgs.config = {
-	  allowUnfree = true;
+    allowUnfree = true;
   };
 
   home.packages = with pkgs; [

@@ -2,6 +2,6 @@
 {
   programs.firefox.enable = true;
   programs.firefox.package = pkgs.firefox.override {
-	  forceWayland = true;
+    forceWayland = true;
   };
 }

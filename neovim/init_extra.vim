@@ -4,3 +4,5 @@ endif
 augroup filetypedetect
 	au! BufRead,BufNewFile *.nix         setfiletype nix
 augroup END
+
+command! -nargs=0 Format :call CocAction('format')

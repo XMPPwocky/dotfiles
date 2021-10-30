@@ -20,7 +20,7 @@
 
   environment.systemPackages = [
   ];
-    
+
 
   nixpkgs.config.allowUnfree = true;
 
@@ -47,14 +47,14 @@
   #	(pkgs.plasma-workspace.overrideAttrs
   #	 	(old: { passthru.providedSessions = ["plasmawayland"]; }))
   #	 	];
-  
+
 
   users.mutableUsers = false;
   users.users.mimir = {
     isNormalUser = true;
     description = "Mimir";
 
-    extraGroups = [ "audio" "jackaudio" "wheel" "networkmanager" ]; 
+    extraGroups = [ "audio" "jackaudio" "wheel" "networkmanager" ];
 
     hashedPassword = (builtins.readFile /etc/nixos/mimir_pwhash);
   };
@@ -82,7 +82,7 @@
 
   services.cpupower-gui.enable = true;
   services.thermald.enable = true;
-  services.fprintd.enable = true;
+  services.fprintd.enable = false;
 
   services.pcscd.enable = true;
   services.yubikey-agent.enable = true;
