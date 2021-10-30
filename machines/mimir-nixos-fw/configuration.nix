@@ -1,16 +1,17 @@
 { config, pkgs, ... }:
 
+let
+  modulesBase = "/home/mimir/dotfiles/modules";
+in
 {
   system.stateVersion = "21.05";
 
-  imports =
-    [
-      ./hardware-configuration.nix
-
-      ./tailscale.nix
-
-      ./audio.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ] ++ map (path: modulesBase + ("/" + path)) [
+    "tailscale.nix"
+    "audio.nix"
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
