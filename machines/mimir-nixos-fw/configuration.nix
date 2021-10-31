@@ -59,6 +59,7 @@ in
 
   services.pcscd.enable = true;
   services.yubikey-agent.enable = true;
+  services.fwupd.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -71,10 +72,7 @@ in
     "i915.enable_guc=2"
   ];
   boot.extraModprobeConfig = lib.mkMerge [
-    # idle audio card after one second
-    "options snd_hda_intel power_save=1"
-    # enable wifi power saving (keep uapsd off to maintain low latencies)
-    "options iwlwifi power_save=1 uapsd_disable=1"
+    "options iwlwifi power_save=1 swcrypto=1"
   ];
 
   services.tlp = {
