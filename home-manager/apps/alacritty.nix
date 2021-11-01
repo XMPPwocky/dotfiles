@@ -3,6 +3,9 @@
 {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
+    window = {
+      dimensions = { columns = 110; lines = 40; };
+    };
     key_bindings = [
       {
         key = "N";
