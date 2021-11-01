@@ -60,6 +60,7 @@ in
   services.pcscd.enable = true;
   services.yubikey-agent.enable = true;
   services.fwupd.enable = true;
+  services.ratbag.enable = true;
 
   security.sudo.wheelNeedsPassword = false;
 
