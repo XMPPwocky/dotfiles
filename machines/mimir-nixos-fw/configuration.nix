@@ -9,6 +9,8 @@ in
   imports = [
     ./hardware-configuration.nix
   ] ++ map (path: modulesBase + ("/" + path)) [
+    "power-utils.nix"
+
     "basic-users.nix"
     "desktop.nix"
 
