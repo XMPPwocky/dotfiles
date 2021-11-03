@@ -73,14 +73,23 @@ in
     "i915.enable_fbc=1"
     "i915.enable_psr=2"
     "i915.enable_guc=2"
+    "mem_sleep_default=deep"
   ];
   boot.extraModprobeConfig = lib.mkMerge [
-    "options iwlwifi power_save=1 swcrypto=1"
+    "options iwlwifi power_save=1"
   ];
 
+  services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      PCIE_ASPM_ON_BAT = "powersupersave";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+    };
   };
+
 
   fileSystems."/".options = [ "relatime" "nodiratime" "discard=async" "compress" ];
 }
