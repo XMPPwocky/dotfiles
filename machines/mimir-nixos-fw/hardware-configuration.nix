@@ -18,16 +18,16 @@
       fsType = "btrfs";
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/f37fbd21-02cf-498c-97aa-acd052194bef";
-  boot.initrd.luks.devices."cryptswap".device = "/dev/disk/by-uuid/4d9a85c1-1c6f-43f3-9fe1-62addf581f5a";
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/d0a95925-7a84-45df-95e6-f08c29750ed8";
+  boot.initrd.luks.devices."cryptswap".device = "/dev/disk/by-uuid/668a991e-5717-4dfe-b085-1db3b72958a5";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0C7E-DAF4";
+    { device = "/dev/disk/by-uuid/7B31-BA35";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/d17dc663-6e9a-495b-b8b1-9e6db8762eb3"; }
+    [ { device = "/dev/disk/by-uuid/93fe59eb-c77f-41e4-9a6d-9c6adfdcc9cb"; }
     ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
