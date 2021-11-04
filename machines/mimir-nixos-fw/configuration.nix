@@ -91,6 +91,6 @@ in
   };
 
 
-  fileSystems."/".options = [ "relatime" "nodiratime" "discard=async" "compress" ];
+  fileSystems."/".options = [ "relatime" "nodiratime" "discard=async" "compress=zstd" ];
 }
 
