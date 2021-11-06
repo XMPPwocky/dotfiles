@@ -42,7 +42,6 @@ in
     plexamp
     unstable.joplin-desktop
 
-    unstable.bitwig-studio4
     libreoffice
 
     resilio-sync
@@ -53,6 +52,8 @@ in
 
     pinentry-qt
 
+    unstable.bitwig-studio4
+    unstable.mixxx
   ];
 
   programs.bash.enable = true;
