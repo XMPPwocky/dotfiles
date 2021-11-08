@@ -47,6 +47,7 @@ in
     resilio-sync
 
     plasma-pa
+    ark
 
     yubikey-agent
 
