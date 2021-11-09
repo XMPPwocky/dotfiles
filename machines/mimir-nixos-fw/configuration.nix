@@ -16,6 +16,8 @@ in
 
     "audio.nix"
     "tailscale.nix"
+
+    "ps5-controller-udev.nix"
   ];
 
   boot.loader.systemd-boot.enable = true;
