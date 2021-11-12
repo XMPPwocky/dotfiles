@@ -80,7 +80,6 @@
     "options iwlwifi power_save=1"
   ];
 
-  services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
     settings = {
