@@ -24,7 +24,7 @@
         "renoise": "renoise"
       },
       "locked": {
-        "narHash": "sha256-JSqm+bhN/bYwZBv5XpoCAxFLS1Hwb4YwSLXkeZP7bVA=",
+        "narHash": "sha256-WwDhec3MT0wClfw/cffNHtwDx+ddI1dEdyDEQoT1w8k=",
         "path": "/home/mimir/dotfiles/mimir-home",
         "type": "path"
       },
