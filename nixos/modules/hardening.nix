@@ -5,8 +5,8 @@ with lib;
   security.apparmor.enable = mkDefault true;
   security.apparmor.killUnconfinedConfinables = mkDefault true;
 
-  environment.memoryAllocator.provider = mkDefault "scudo";
-  environment.variables.SCUDO_OPTIONS = mkDefault "ZeroContents=1";
+  environment.memoryAllocator.provider = "scudo";
+  environment.variables.SCUDO_OPTIONS = "ZeroContents=1";
 
   boot.kernelParams = [
     # Slab/slub sanity checks, redzoning, and poisoning
