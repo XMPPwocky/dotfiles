@@ -5,7 +5,11 @@
 
   imports = [
     ./hardware-configuration.nix
+
+    ../../modules/hardened-kernel.nix
+
     ../../modules/enable-flakes.nix
+
     ../../modules/power-utils.nix
     ../../modules/basic-users.nix
     ../../modules/desktop.nix
@@ -33,6 +37,7 @@
   networking.useDHCP = false;
 
   networking.firewall.enable = true;
+  networking.firewall.checkReversePath = true;
   networking.firewall.allowedTCPPorts = [
     53735 # resilio (non-default)
   ];

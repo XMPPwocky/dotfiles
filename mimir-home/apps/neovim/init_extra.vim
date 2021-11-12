@@ -9,3 +9,7 @@ command! -nargs=0 Format :call CocAction('format')
 
 set termguicolors
 colorscheme evening
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
