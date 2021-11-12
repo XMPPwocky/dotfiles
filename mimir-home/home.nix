@@ -12,7 +12,7 @@
     apps/chromium.nix
     apps/firefox.nix
 
-    ./defaults.nix
+    ./cfg-defaults.nix
   ];
 
   programs.home-manager.enable = true;
