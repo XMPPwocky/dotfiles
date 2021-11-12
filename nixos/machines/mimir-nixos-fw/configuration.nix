@@ -1,23 +1,16 @@
 { lib, config, pkgs, ... }:
 
-let
-  modulesBase = "/home/mimir/dotfiles/modules";
-in
 {
   system.stateVersion = "21.05";
 
   imports = [
     ./hardware-configuration.nix
-  ] ++ map (path: modulesBase + ("/" + path)) [
-    "power-utils.nix"
-
-    "basic-users.nix"
-    "desktop.nix"
-
-    "audio.nix"
-    "tailscale.nix"
-
-    "ps5-controller-udev.nix"
+    ../../modules/enable-flakes.nix
+    ../../modules/power-utils.nix
+    ../../modules/basic-users.nix
+    ../../modules/desktop.nix
+    ../../modules/audio.nix
+    ../../modules/ps5-controller-udev.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -46,7 +39,7 @@ in
     53735 # resilio (non-default)
   ];
 
-  programs.steam.enable = true;
+  services.flatpak.enable = true;
 
   hardware.opengl = {
     enable = true;

@@ -1,24 +1,18 @@
 { config, pkgs, ... }:
 
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-  homeManagerBase = /home/mimir/dotfiles/home-manager;
-in
 {
-  imports = map (path: homeManagerBase + ("/" + path)) [
-    "apps/alacritty.nix"
-    "apps/tmux.nix"
-    "apps/neovim.nix"
+  imports = [
+    apps/alacritty.nix
+    apps/tmux.nix
+    apps/neovim/default.nix
 
-    "apps/resilio.nix"
-    "apps/duplicacy-web.nix"
+    apps/resilio.nix
+    apps/duplicacy-web.nix
 
-    "apps/chromium.nix"
-    "apps/firefox.nix"
+    apps/chromium.nix
+    apps/firefox.nix
 
-    "apps/renoise.nix"
-
-    "defaults.nix"
+    ./defaults.nix
   ];
 
   programs.home-manager.enable = true;
@@ -32,7 +26,8 @@ in
     allowUnfree = true;
   };
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
+    fd
     ripgrep
     mosh
 
@@ -40,7 +35,7 @@ in
     tdesktop
 
     plexamp
-    unstable.joplin-desktop
+    joplin-desktop
 
     libreoffice
 
@@ -53,9 +48,9 @@ in
 
     pinentry-qt
 
-    unstable.bitwig-studio4
-    unstable.mixxx
-  ];
+    bitwig-studio4
+    mixxx
+  ]);
 
   programs.bash.enable = true;
   programs.git = {
