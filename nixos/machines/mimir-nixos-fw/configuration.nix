@@ -11,6 +11,7 @@
     ../../modules/desktop.nix
     ../../modules/audio.nix
     ../../modules/ps5-controller-udev.nix
+    ../../modules/tailscale.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
