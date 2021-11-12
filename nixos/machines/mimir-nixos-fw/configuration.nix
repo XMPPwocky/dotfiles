@@ -6,7 +6,7 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/hardened-kernel.nix
+    ../../modules/hardening.nix
 
     ../../modules/enable-flakes.nix
 
