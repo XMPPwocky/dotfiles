@@ -16,7 +16,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.mimir = mimir-home.outputs.lib;
+          home-manager.users.mimir = mimir-home.outputs.hmCfg;
         }
       ];
     };
