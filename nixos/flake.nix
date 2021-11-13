@@ -11,14 +11,16 @@
       modules = {
         hardening = modules/hardening.nix;
 
-        #modules/enable-flakes.nix
+        enable-flakes = modules/enable-flakes.nix;
 
-        #modules/power-utils.nix
-        #modules/basic-users.nix
-        #modules/desktop.nix
-        #modules/audio.nix
-        #modules/ps5-controller-udev.nix
-        #modules/tailscale.nix
+        basic-users = modules/basic-users.nix;
+
+        desktop = modules/desktop.nix;
+        audio = modules/audio.nix;
+        tailscale = modules/tailscale.nix;
+
+        power-utils = modules/power-utils.nix;
+        ps5-controller-udev = modules/ps5-controller-udev.nix;
       };
     in
     {
@@ -36,7 +38,17 @@
             home-manager.users.mimir = mimir-home.outputs.hmCfg;
           }
 
-	  modules.hardening
+          modules.enable-flakes
+
+          modules.hardening
+          modules.basic-users
+
+          modules.desktop
+	  modules.audio
+	  modules.tailscale
+
+	  modules.power-utils
+	  modules.ps5-controller-udev
         ];
       };
     };

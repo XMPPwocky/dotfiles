@@ -5,17 +5,6 @@
 
   imports = [
     ./hardware-configuration.nix
-
-    ../../modules/hardening.nix
-
-    ../../modules/enable-flakes.nix
-
-    ../../modules/power-utils.nix
-    ../../modules/basic-users.nix
-    ../../modules/desktop.nix
-    ../../modules/audio.nix
-    ../../modules/ps5-controller-udev.nix
-    ../../modules/tailscale.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -90,7 +79,6 @@
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
     };
   };
-
 
   fileSystems."/".options = [ "relatime" "nodiratime" "discard=async" "compress=zstd" ];
 }
